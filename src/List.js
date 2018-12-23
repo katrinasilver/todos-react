@@ -8,6 +8,7 @@ const List = (props) => {
         props.todos.map(todo =>
           <ListItem key={todo.id} index={todo.id} todo={todo}
             completeOne={props.completeOne}
+            deleteOne={props.deleteOne}
           />
         )
       }

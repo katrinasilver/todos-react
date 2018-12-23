@@ -12,20 +12,24 @@ class Todo extends Component {
     }
   }
 
-  completeAll = (e) => {
-    e.preventDefault()
+  completeAll = () => {
     let completeAll = this.state.todos.map(todo => ({...todo, completed: true }) )
     this.setState({
       todos: completeAll
     })
-
-    console.log(completeAll)
   }
 
   completeOne = (todo) => {
     let completeOne = this.state.todos.map(t => t === todo ? { ...t, completed: true } : { ...t })
     this.setState({
       todos: completeOne
+    })
+  }
+
+  deleteOne = (todo) => {
+    let deleteOne = this.state.todos.filter(t => t !== todo)
+    this.setState({
+      todos: deleteOne
     })
   }
 
@@ -36,6 +40,7 @@ class Todo extends Component {
 
         <List todos={this.state.todos}
           completeOne={this.completeOne}
+          deleteOne={this.deleteOne}
         />
 
         <form>

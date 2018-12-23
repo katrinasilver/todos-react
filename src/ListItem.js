@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ListItem = ({ todo, completeOne, index }) => {
+const ListItem = ({ todo, completeOne, deleteOne, index }) => {
   return (
     <li style={todo.completed ? { textDecoration: 'line-through' } : null} data-id={index}>
 
       <p>{todo.description}</p>
       <button onClick={() => completeOne(todo)}>Complete</button>
-      <button>Delete</button>
+      <button onClick={() => deleteOne(todo)}>Delete</button>
 
     </li>
   )
