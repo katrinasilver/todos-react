@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import List from './List'
 class Todo extends Component {
   constructor(props) {
     super(props)
@@ -25,14 +25,11 @@ class Todo extends Component {
   render() {
     return (
       <div className="container">
-        <ul>
-          <li>
-            <p>To do's goe here</p>
-            <button>Complete</button>
-            <button>Delete</button>
-          </li>
-        </ul>
+
+        <List todos={this.state.todos} />
+
         <button onClick={this.completeAll}>Complete All</button>
+
       </div>
     );
   }
