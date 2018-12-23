@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import List from './List'
+import AddItem from './AddItem'
 class Todo extends Component {
   constructor(props) {
     super(props)
     this.state = {
       todos: [
-        { id: 1, description: 'Gotta go fast', completed: false },
-        { id: 2, description: 'Recover chaos emeralds', completed: false },
-        { id: 3, description: 'Find time to chill with Tails', completed: false }
       ]
     }
   }
@@ -33,6 +31,12 @@ class Todo extends Component {
     })
   }
 
+  addOne = (todo) => {
+    this.setState({
+      todos: [...this.state.todos, todo]
+    })
+  }
+
   render() {
     return (
       <div className="container" style={ { padding: '30px'} }>
@@ -43,10 +47,7 @@ class Todo extends Component {
           deleteOne={this.deleteOne}
         />
 
-        <form>
-          <input type="text" />
-          <button type="submit">Add a Todo</button>
-        </form>
+        <AddItem addOne={this.addOne}/>
 
       </div>
     );
