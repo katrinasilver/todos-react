@@ -6,7 +6,9 @@ const List = (props) => {
     <ul>
       {
         props.todos.map(todo =>
-          <ListItem key={ todo.id } index={ todo.id } todo={ todo } />
+          <ListItem key={todo.id} index={todo.id} todo={todo}
+            completeOne={props.completeOne}
+          />
         )
       }
     </ul>

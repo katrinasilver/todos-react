@@ -1,11 +1,13 @@
 import React from 'react'
 
-const ListItem = (props) => {
+const ListItem = ({ todo, completeOne, index }) => {
   return (
-    <li style={ props.todo.completed ? { textDecoration: 'line-through' } : null } data-id={props.index}>
-      <p>{props.todo.description}</p>
-      <button>Complete</button>
+    <li style={todo.completed ? { textDecoration: 'line-through' } : null} data-id={index}>
+
+      <p>{todo.description}</p>
+      <button onClick={() => completeOne(todo)}>Complete</button>
       <button>Delete</button>
+
     </li>
   )
 }

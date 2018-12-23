@@ -14,7 +14,7 @@ class Todo extends Component {
 
   completeAll = (e) => {
     e.preventDefault()
-    let completeAll = this.state.todos.map(todo => ({...todo, completed: true}) )
+    let completeAll = this.state.todos.map(todo => ({...todo, completed: true }) )
     this.setState({
       todos: completeAll
     })
@@ -22,13 +22,26 @@ class Todo extends Component {
     console.log(completeAll)
   }
 
+  completeOne = (todo) => {
+    let completeOne = this.state.todos.map(t => t === todo ? { ...t, completed: true } : { ...t })
+    this.setState({
+      todos: completeOne
+    })
+  }
+
   render() {
     return (
-      <div className="container">
-
-        <List todos={this.state.todos} />
-
+      <div className="container" style={ { padding: '30px'} }>
         <button onClick={this.completeAll}>Complete All</button>
+
+        <List todos={this.state.todos}
+          completeOne={this.completeOne}
+        />
+
+        <form>
+          <input type="text" />
+          <button type="submit">Add a Todo</button>
+        </form>
 
       </div>
     );
